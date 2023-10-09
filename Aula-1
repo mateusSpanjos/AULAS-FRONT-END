@@ -1,0 +1,127 @@
+/*
+// EXERCICIO 2
+import * as leitor from "readline-sync"
+function main() {
+    let nome = leitor.question ("insira o nome do item: ")
+    let valor = leitor.questionFloat ("insira o valor do item: ")
+    let desconto = leitor.questionInt ("insira o desconto: ")
+    let valorDesconto = ((100-desconto) / 100)
+    console.log (` O nome do item é: ${nome}`)
+    console.log (` o valor do item é : ${valor}`)
+    console.log (` O valor com desconto é: ${valor * valorDesconto}`)
+}
+main()
+
+// EXERCICIO 3 
+import * as leitor from "readline-sync"
+
+function main (): void {
+    let adulto = leitor.questionInt ("insira a quantidade de adultos que tem na festa: ")
+    let criança = leitor.questionInt ("insira a quantidade de crianças que tem na festa: ")
+    console.log ("The total party is:", calcula(adulto, criança))
+}
+
+function calcula (adulto, criança): Number {
+    return adulto + criança
+}
+main()
+
+
+// EXERCICIO 4 (incompleto nao entendi)
+import * as leitor from "readline-sync"
+
+function main() {
+    let salarioBruto: Number;
+    let salarioINSS: Number;
+    let salarioLiquido: Number;
+
+    salarioBruto = leitor leitor.questionFloat ("Insira o valor do seu salario")
+
+    salarioINSS = INSS (salarioBruto)
+    salarioLiquido = IRSS (salarioINSS)
+
+console.log (`Seu salario liquido é: ${salarioBruto}`);
+console.log (`O valor com desconto do INSS é: ${salarioINSS}`);
+console.log (`Seu salario liquido é: ${salarioLiquido}`);
+
+}
+
+// Função para calculo de INSS com base no salario bruto
+function INSS (salario: number): number {
+    if (salario <= 1320) {
+        return salario * 0.925
+    } else if (salario > 1319 && )
+}
+
+
+//EXERCICIO 5
+import * as leitor from "readline-sync"
+
+function main(): void {
+    let n1 = 20
+    let n2 = 12
+    let n3 = 3
+
+    console.log(soma(n1, n2, n3));
+    console.log(subtração(n1, n2, n3));
+    console.log(multiplicação(n1, n2, n3));
+    console.log(divisão(n1, n2, n3));
+
+}
+function soma(n1, n2, n3): Number {
+    let resultado1 = n1 + n2 + n3
+    return resultado1
+}
+
+function subtração(n1, n2, n3): Number {
+    let resultado2 = n1 - n2 - n3
+    return resultado2
+}
+function multiplicação(n1, n2, n3): Number {
+    let resultado3 = n1 * n2 * n3
+    return resultado3
+}
+
+function divisão(n1, n2, n3): Number {
+    let resultado4 = n1 / n2 / n3
+    return resultado4
+}
+
+main()
+
+
+
+
+//EXERCICIO 6
+
+import * as leitor from "readline-sync"
+
+function main() {
+    let nome = leitor.question("insira seu nome aqui: ")
+    let sistema = leitor.question("insira seu sistema aqui: ")
+    displayAlertMessage(nome, sistema)
+}
+function displayAlertMessage(nome, sistema) {
+    console.log (`There's a new sign-in request on ${nome} for your Google Account ${sistema}.`)
+}
+main()
+
+
+//EXERCICIO 7 
+
+import * as leitor from "readline-sync"
+
+function main() {
+
+    const ontem = leitor.questionFloat ("quantas horas voce passou no celular ontem?")
+    const hoje = leitor.questionFloat ("quantas horas voce passou no celular hoje?")
+    timeSpent(ontem, hoje)
+} 
+
+
+function timeSpent(hoje, ontem): Boolean {
+    return hoje > ontem
+
+}
+main()
+*/
