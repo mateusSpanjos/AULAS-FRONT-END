@@ -1,0 +1,183 @@
+INDEX.TS
+
+/*
+import * as leitor from "readline-sync"
+
+
+export class pessoa {
+
+
+    
+    nome: String
+    cpf: Number
+    rg: Number
+    cor: String
+    idade: Number
+
+
+    constructor(nome: String, cpf: Number, rg: Number, cor: String, idade: Number) {
+
+        this.nome = nome
+        this.cpf = cpf
+        this.rg = rg
+        this.cor = cor
+        this.idade = idade
+
+    }
+
+
+    getNome1() {
+        console.log(`Olá, meu nome é ${this.nome}`);
+
+
+    }
+
+    getCPF1() {
+        console.log(`Meu cpf é ${this.cpf}`);
+
+
+    }
+    getRG1() {
+        console.log(`Meu rg é ${this.rg}`);
+
+
+    }
+    getCor1() {
+        console.log(`Minha cor é ${this.cor}`);
+
+
+    }
+    getIdade1() {
+        console.log(`Minha idade é ${this.idade}`);
+
+
+    }
+    setNome(){
+        let nome2 = leitor.IquestionInt ("Insira o novo nome: ")
+        this.nome = nome2
+    }
+
+    setCPF(){
+        let cpf2 = leitor.questionInt ("Insira o novo nome: ")
+        this.cpf = cpf2
+    }
+    setRG(){
+        let rg2 = leitor.questionInt ("Insira o novo nome: ")
+        this.rg = rg2
+    }
+    setCor(){
+        let cor2 = leitor.questionInt ("Insira o novo nome: ")
+        this.cor = cor2
+    }
+    setIdade(){
+        let idade2 = leitor.questionInt ("Insira o novo nome: ")
+        this.idade = idade2
+    }
+
+
+}
+
+
+
+
+
+// EXERCICIO 1
+
+
+
+export class Livro {
+    titulo: String
+    autor: String
+    anoPublicação: Number 
+
+
+constructor (titulo: String, autor: String, anoPublicação: Number) {
+    this.titulo = titulo
+    this.autor = autor
+    this.anoPublicação = anoPublicação
+}
+
+obterDetalhes() {
+    console.log(` O titulo é ${this.titulo}`);
+    console.log(`O autor é ${this.autor}`);
+    console.log(`O ano de publicação é ${this.anoPublicação}`);
+
+}
+}
+*/
+
+
+
+UM.TS
+
+
+/*
+
+
+import { pessoa } from "./index";
+i
+import * as leitor from "readln"
+
+function main(): void{e-sync
+    const humano = metodos()
+    let decisao = leitor.question("Você gostaria de modificar o cadastro? (s/n)")
+    if(decisao === "s"){
+        editarCadastro(humano)
+    } else {
+        console.log("Obrigado, saindo...");
+    }
+}
+
+function cadastro(): pessoa{
+    let nome = leitor.question("Insira seu nome aqui: ")
+    let CPF = leitor.questionInt("Insira seu CPF aqui: ")
+    let RG = leitor.questionInt("Insira seu RG aqui: ")
+    let cor = leitor.question("Insira sua cor aqui: ")
+    let idade = leitor.questionInt("Insira sua idade aqui: ")
+    const humano = new pessoa(nome, CPF, RG, cor, idade)
+    return humano
+}
+
+function metodos(): pessoa{
+    const humano = cadastro()
+    humano.getNome1()
+    humano.getCPF1()
+    humano.getRG1()
+    humano.getCor1()
+    humano.getIdade1()
+    return humano
+}
+
+function editarCadastro(humano: pessoa): void{
+    humano.setNome()
+    humano.setCPF()
+    humano.setRG()
+    humano.setCor()
+    humano.setIdade()
+    humano.getNome1()
+    humano.getCPF1()
+    humano.getRG1()
+    humano.getCor1()
+    humano.getIdade1()
+}
+
+main()
+
+
+// EXERCICIO 1
+
+import { Livro } from "./index";
+import * as leitor from "readline-sync"
+
+
+function main() {
+
+        let titulo = leitor.question("Qual o nome do livro: ")
+        let autor = leitor.question("Quem é o autor: ")
+        let anoPublicação = leitor.questionInt("Em que ano ele foi lançado: ")
+        const livro = new Livro(titulo, autor, anoPublicação)
+        livro.obterDetalhes
+
+}
+main()
+*/
