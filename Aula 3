@@ -1,0 +1,121 @@
+INDEX.TS
+
+
+/*
+
+// EXERCICIO 1
+export class Aluno {
+    nome: String
+    notas: number[] = []
+
+
+    constructor(nome: String) {
+        this.nome = nome
+    }
+
+    setNotas(n1, n2, n3) {
+        this.notas.push(n1)
+        this.notas.push(n2)
+        this.notas.push(n3)
+    }
+
+
+    getMedia(): number {
+        let soma = (this.notas[0] + this.notas[1] + this.notas[2]) / 3
+        return soma
+        
+    }
+}
+
+// EXERCICIO 2
+export class Calculadora {
+    valor1: number;
+    valor2: number;
+
+    setValores(valor1: number, valor2: number) {
+        this.valor1 = valor1;
+        this.valor2 = valor2;
+    }
+
+    getMais(): number {
+        return this.valor1 + this.valor2;
+    }
+
+    getMenos(): number {
+        return this.valor1 - this.valor2;
+    }
+
+    getVezes(): number {
+        return this.valor1 * this.valor2;
+    }
+
+    getDividir(): number {
+        return this.valor1 / this.valor2;
+    }
+}
+*/
+
+
+UM.TS
+
+/*
+
+import { Calculadora } from "./index";
+
+
+
+import * as leitor from "readline-sync"
+
+
+// EXERCICIO 1
+
+
+
+function main(): void {
+    let aluno = cadastro()
+
+
+    function cadastro() {
+        let nome = leitor.question("Insira o nome do aluno: ")
+        let aluno = new Aluno(nome)
+        console.log("Aluno criado com sucesso")
+        let n1 = leitor.questionInt("Insira nota 1: ")
+        let n2 = leitor.questionInt("Insira nota 2: ")
+        let n3 = leitor.questionInt("Insira nota 3: ")
+        aluno.setNotas(n1, n2, n3)
+        console.log(aluno.getMedia())
+        return aluno
+
+
+    }
+}
+main()
+
+
+// EXERCICIO 2
+function main() {
+    const minhaCalculadora = new Calculadora();
+
+    let n1 = leitor.questionInt("Insira o primeiro numero: ")
+    let n2 = leitor.questionInt("Insira o segundo numero: ")
+
+    minhaCalculadora.setValores(n1, n2);
+
+    const operacao = leitor.question("Escolha uma operação: (+, -, *, /): ");
+
+    if (operacao === "+") {
+        console.log("Resultado da soma:", minhaCalculadora.getMais());
+    } else if (operacao === "-") {
+        console.log("Resultado da subtração:", minhaCalculadora.getMenos());
+    } else if (operacao === "*") {
+        console.log("Resultado da multiplicação:", minhaCalculadora.getVezes());
+    } else if (operacao === "/") {
+        console.log("Resultado da divisão:", minhaCalculadora.getDividir());
+    } else {
+        console.log("Operação não reconhecida.");
+    }
+}
+
+main();
+
+*/
