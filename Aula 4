@@ -1,0 +1,407 @@
+/*
+
+// EXERCICIO 1
+
+export class Circulo {
+    raio: number
+    pi: number = 3.14
+
+
+    constructor(raio: number) {
+        this.raio = raio
+    }
+
+
+    getArea() {
+        let area: number = this.pi * (this.raio * this.raio)
+        console.log(`O valor da area do circulo é: ${area}`)
+
+    }
+
+}
+
+
+export class Triangulo {
+    base: number
+    altura: number
+
+
+    constructor(base: number, altura: number) {
+        this.base = base
+        this.altura = altura
+
+    }
+
+
+    getArea() {
+        let area: number = (this.base * this.altura) / 2
+        console.log(`O valor da area do triangulo é: ${area}`)
+
+    }
+}
+
+export class Retangulo {
+    base: number
+    altura: number
+
+
+    constructor(base: number, altura: number) {
+        this.base = base
+        this.altura = altura
+
+    }
+
+
+    getArea() {
+        let area: number = (this.base * this.altura) / 2
+        console.log(`O valor da area do retangulo é: ${area}`)
+
+    }
+}
+* /
+
+
+
+/*
+// AULA 4
+// INTERPRETACAO
+// EXERCICIO 1
+
+
+ while (condicao) {
+    //codigo
+ }
+
+ // EXERCICO 2
+
+// da para botar um switch case dentro de um while, com o whila passando a condicao para o switch
+
+
+// EXERCICIO 3
+ 
+switch (variavel) {
+
+    case 1:
+    case 2:
+    case 3:
+    console.log ("sei la")
+    break
+
+}
+
+// EXERCICIO 4
+nao é obrigatorio
+
+
+// EXERCICIO 5
+switch (true) {
+    case 1:
+    console.log("1")
+    break;
+    case 2:
+    console.log("2")
+    break
+    default:
+    console.log(" Nem 1 nem 2")
+}
+
+// EXERCICIO 6
+
+Sim, tem um case padrao quando nenhum dos codigos bate com o valor fornecido 
+
+
+
+
+// EXERCICIO 7
+
+let diaSemana: string = "segunda";
+switch (diaSemana) {
+    case "segunda":
+    console.log("Hoje é segunda");
+    break;
+    case "terça":
+    console.log("Hoje é terça");
+    break; 
+    default:
+    console.log("Outro dia da semana");
+}
+
+// EXERCICIO 8
+Sim, voce pde nao usar loop para fazer escolhas condicionais
+
+let numero = 3
+
+switch (numero) {
+    case 1:
+        console.log(1)
+        break
+    case 2:
+        console.log(2)
+        break
+    case 3:
+        console.log(3)
+        break
+        default:
+            console.log("numero invalido")
+}
+EXERCICIO 9
+Sim, para fazer agrupamentos de cases como mostrado no exercicio 3
+
+
+
+
+//  ENUNCIADOS
+
+// EXERCICIO 1
+
+
+let a = true
+
+while (a) {
+    let numero = leitor.questionInt("Digite um numero de 1 a 3: ")
+
+    switch (numero) {
+        case 1:
+            console.log("Voce digitou o numero 1")
+            break
+        case 2:
+            console.log("Voce digitou o numero 2");
+            break
+        case 3:
+            console.log("Voce digitou o numero 3");
+            break
+        default:
+            console.log("opcao invalida");
+
+
+    }
+
+
+}
+
+
+
+
+
+
+import * as leitor from "readline-sync"
+
+
+
+
+// EXERCICIO 2
+let a = true
+
+while (a) {
+    let cor = leitor.question("Digite uma cor: ")
+
+    switch (cor) {
+        case "branco":
+            console.log("Branco me lembra a never")
+            break
+        case "azul":
+            console.log("Azul me lembra o mar");
+            break
+        case "preto":
+            console.log("Preto me lembra a noite");
+            break
+        default:
+            console.log("opcao invalida");
+            a = false
+            break
+
+
+    }
+
+
+}
+
+
+
+// EXERCICIO 3
+let a = true
+
+while (a) {
+    let cor = leitor.questionInt("Digite um numero de 1 a 12: ")
+
+    switch (cor) {
+        case 1:
+            console.log("O mes e janeiro")
+            break
+        case 2:
+            console.log("O mes e fevereiro");
+            break
+        case 3:
+            console.log("O mes e marco");
+            break
+            case 4:
+            console.log("O mes e abril")
+            break
+            case 5:
+            console.log("O mes e maio")
+            break
+            case 6:
+            console.log("O mes e junho")
+            break
+            case 7:
+            console.log("O mes e julho")
+            break
+            case 8:
+            console.log("O mes e agosto")
+            break
+            case 9:
+            console.log("O mes e setembro")
+            break
+            case 10:
+            console.log("O mes e outubro")
+            break
+            case 11:
+            console.log("O mes e novembro")
+            break
+            case 12:
+            console.log("O mes e dezembro")
+            break
+        default:
+            console.log("opcao invalida");
+            a = false
+            break
+
+
+    }
+
+
+}
+
+
+// EXERCICIO 4
+let a = true
+
+while (a) {
+    let preco = leitor.question("Digite um codigo de produto: ")
+
+    switch (preco) {
+        case "a":
+            console.log("90 reais")
+            break
+        case "b":
+            console.log("15 reais");
+            break
+        case "c":
+            console.log("19 reais");
+            break
+        default:
+            console.log("opcao invalida");
+            a = false
+            break
+
+
+    }
+
+
+}
+
+
+
+// EXERCICIO 5
+
+let a = true;
+
+while (a) {
+    let nota = leitor.questionInt("Digite a nota de 0 a 100: ");
+
+    if (nota >= 0 && nota <= 100) {
+        let conceito;
+
+        if (nota >= 90) {
+            conceito = 'A';
+        } else if (nota >= 80) {
+            conceito = 'B';
+        } else if (nota >= 70) {
+            conceito = 'C';
+        } else if (nota >= 60) {
+            conceito = 'D';
+        } else {
+            conceito = 'F';
+        }
+
+        switch (conceito) {
+            case 'A':
+                console.log("Conceito A - Excelente!");
+                break;
+            case 'B':
+                console.log("Conceito B - Bom trabalho!");
+                break;
+            case 'C':
+                console.log("Conceito C - Desempenho satisfatório.");
+                break;
+            case 'D':
+                console.log("Conceito D - Você passou, mas precisa melhorar.");
+                break;
+            case 'F':
+                console.log("Conceito F - Infelizmente, você não passou.");
+                break;
+        }
+    }
+}
+
+
+// EXERCICIO 6
+let a = true
+
+while (a) {
+    let transporte = leitor.question("Digite um meio de transporte: ")
+
+    switch (transporte) {
+        case "carro":
+            console.log("Velocidade media de 70km/h")
+            break
+        case "bike":
+            console.log(" Velocidade media de 24 a 29km/h");
+            break
+        case "onibus":
+            console.log("Velocidade media de 17km/h");
+            break
+        default:
+            console.log("opcao invalida");
+            a = false
+            break
+
+
+    }
+
+
+}
+
+
+
+// EXERCICIO 7 
+let a = true
+
+while (a) {
+    let numero2 = leitor.questionInt("Digite um numero de 1 a 5: ")
+
+    switch (numero2) {
+        case 1:
+            console.log("Voce digitou o numero 1")
+            break
+        case 2:
+            console.log("Voce digitou o numero 2");
+            break
+        case 3:
+            console.log("Voce digitou o numero 3");
+            break
+            case 4:
+            console.log("Voce digitou o numero 4");
+            break
+            case 5:
+            console.log("Voce digitou o numero 5");
+            break
+        default:
+            console.log("opcao invalida");
+
+
+    }
+
+
+}
+*/
