@@ -1,0 +1,74 @@
+export class Carro {
+    consumo: number
+    marca: string
+    modelo: string
+    ano: number
+    combustivel: number 
+    constructor (consumo: number, marca: string, modelo: string, ano: number) {
+        this.consumo = consumo
+        this.marca = marca
+        this.modelo = modelo
+        this.ano = ano
+        this.combustivel = 0
+    }
+
+    viajar(km: number): void {
+        let viajar = km / this.consumo
+        if (viajar > this.combustivel) {
+            console.log("");
+            
+        } else {
+            this.combustivel -= viajar
+            console.log(`Sobrou ${this.combustivel} litros de gasolina`);
+            
+        }
+    }
+
+
+    abastecer(gasolina: number): void {
+        this.combustivel += gasolina
+        console.log(`Seu tanque esta com ${this.combustivel} litros de gasolina`);
+        
+    }
+
+
+    tanque(gasolina: number): void {
+        console.log(`Seu tanque esta com ${this.combustivel} litros de gasolina`);
+        
+    }
+    getValues(): void {
+        console.log(`Seu carro faz ${this.consumo} por litro de gasolina`)
+        console.log(`A marca do seu carro e: ${this.marca}`);
+        console.log(`O modelo do carro é ${this.modelo}`);
+        console.log(`O ano do seu carro é : ${this.ano}`);
+        console.log();
+        
+        
+        
+    }
+
+
+}
+
+
+import { Carro } from "./um";
+
+
+
+import * as leitor from "readline-sync"
+
+
+let camaro = new Carro(8, "Chevrolet", "Camaro", 2019 )
+let corsa = new Carro(15, "Chevrolet", "Camaro", 2019 )
+let fusca = new Carro(10, "Volkswagem", "Camaro", 2019 )
+let monza = new Carro(13, "Chevrolet", "Camaro", 2019 )
+let lancer = new Carro(11, "Mitsubishi", "Camaro", 2019 )
+let civic = new Carro(13, "Honda", "Camaro", 2019 )
+let corolla = new Carro(12, "Toyota", "Camaro", 2019 )
+let up = new Carro(15, "Volkswagem", "Camaro", 2019 )
+let focus = new Carro(12, "Ford", "Camaro", 2019 )
+let vectra = new Carro(10, "Chevrolet", "Camaro", 2019 )
+
+
+
+
