@@ -310,35 +310,35 @@ while (a) {
     let nota = leitor.questionInt("Digite a nota de 0 a 100: ");
 
     if (nota >= 0 && nota <= 100) {
-        let conceito;
+        let conceito
 
         if (nota >= 90) {
-            conceito = 'A';
+            conceito = 'A'
         } else if (nota >= 80) {
-            conceito = 'B';
+            conceito = 'B'
         } else if (nota >= 70) {
-            conceito = 'C';
+            conceito = 'C'
         } else if (nota >= 60) {
-            conceito = 'D';
+            conceito = 'D'
         } else {
-            conceito = 'F';
+            conceito = 'F'
         }
 
         switch (conceito) {
             case 'A':
-                console.log("Conceito A - Excelente!");
+                console.log("Conceito A - Excelente!")
                 break;
             case 'B':
-                console.log("Conceito B - Bom trabalho!");
+                console.log("Conceito B - Bom trabalho!")
                 break;
             case 'C':
-                console.log("Conceito C - Desempenho satisfatório.");
-                break;
+                console.log("Conceito C - Desempenho satisfatório.")
+                break:
             case 'D':
-                console.log("Conceito D - Você passou, mas precisa melhorar.");
+                console.log("Conceito D - Você passou, mas precisa melhorar.")
                 break;
             case 'F':
-                console.log("Conceito F - Infelizmente, você não passou.");
+                console.log("Conceito F - Infelizmente, você não passou.")
                 break;
         }
     }
@@ -385,19 +385,19 @@ while (a) {
             console.log("Voce digitou o numero 1")
             break
         case 2:
-            console.log("Voce digitou o numero 2");
+            console.log("Voce digitou o numero 2")
             break
         case 3:
-            console.log("Voce digitou o numero 3");
+            console.log("Voce digitou o numero 3")
             break
             case 4:
-            console.log("Voce digitou o numero 4");
+            console.log("Voce digitou o numero 4")
             break
             case 5:
-            console.log("Voce digitou o numero 5");
+            console.log("Voce digitou o numero 5")
             break
         default:
-            console.log("opcao invalida");
+            console.log("opcao invalida")
 
 
     }
