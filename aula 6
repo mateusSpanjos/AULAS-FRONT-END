@@ -1,0 +1,151 @@
+INDEX.TS
+
+/ EXERCICIO 1
+
+export class Lista {
+    nome: String
+    endereco: String
+    lista: String[] = []
+
+
+    constructor (nome: String, endereco: String) {
+        this.nome = nome
+        this.endereco = endereco
+        
+    }
+
+    adicionar (produto: String): void {
+        this.lista.push(produto)
+    }
+
+    remover(produto: String): void {
+        const sla = this.lista.indexOf(produto)
+        if (sla !== - 1) {
+            this.lista.splice (sla, 1)
+        }
+
+
+    }
+    exibir(): void {
+        console.log(`Produtos disponíveis na loja ${this.nome} (${this.endereco}):`);
+        this.lista.forEach(produto => {
+            console.log(produto);
+        });
+
+    }
+
+}
+
+
+// EXERCICIO 2
+
+export class Empresa {
+    nome: String
+    endereco: String
+    lista: String[] = []
+
+
+    constructor (nome: String, endereco: String) {
+        this.nome = nome
+        this.endereco = endereco
+        
+    }
+
+    adicionar (funcionario: String): void {
+        this.lista.push(funcionario)
+    }
+
+    remover(funcionario: String): void {
+        const sla = this.lista.indexOf(funcionario)
+        if (sla !== - 1) {
+            this.lista.splice (sla, 1)
+        }
+
+
+    }
+    exibir(): void {
+        console.log(`Funcionarios registrados na empresa ${this.nome} localizada na (${this.endereco}):`);
+        this.lista.forEach(funcionario => {
+            console.log(funcionario);
+        });
+
+    }
+
+}
+
+
+
+UM.TS
+import { Lista, Empresa } from "./um"
+import * as leitor from "readline-sync"
+
+// EXERCICIO 1
+
+const minhaLista = new Lista("Minha Loja de Variedades", "Rua Lori Herzer, 299") 
+
+function main() {
+    let a = true 
+    while (a) {
+        const escolha = leitor.question(
+            `Escolha uma opção:\n1. Adicionar produto\n2. Exibir produtos\n3. Remover produto\n4. Sair\n`
+        ) 
+
+        switch (escolha) {
+            case "1":
+                const novoProduto = leitor.question("Digite o nome do produto que deseja adicionar: ") 
+                minhaLista.adicionar(novoProduto)
+                break
+            case "2":
+                minhaLista.exibir()
+                break
+            case "3":
+                const produtoRemover = leitor.question("Digite o nome do produto que deseja remover: ")  
+                minhaLista.remover(produtoRemover) 
+                break 
+            case "4":
+                a = false 
+                break 
+            default:
+                console.log("Opção inválida. Tente novamente.") 
+                break 
+        }
+    }
+}
+
+main()  
+
+
+// EXERCICIO 2
+
+const minhaLista2 = new Empresa("Empresa de Software", "Rua Lori Herzer, 299") 
+
+function main2() {
+    let a = true 
+    while (a) {
+        const escolha = leitor.question(
+            `Escolha uma opção:\n1. Adicionar funcionario\n2. Exibir funcionarios\n3. Remover funcionario\n4. Sair\n`
+        ) 
+
+        switch (escolha) {
+            case "1":
+                const novoFuncionario = leitor.question("Digite o nome do funcionario que deseja adicionar: ") 
+                minhaLista.adicionar(novoFuncionario)
+                break
+            case "2":
+                minhaLista.exibir()
+                break 
+            case "3":
+                const funcionarioRemover = leitor.question("Digite o nome do funcionario que deseja remover: ")  
+                minhaLista.remover(funcionarioRemover) 
+                break 
+            case "4":
+                a = false 
+                break 
+            default:
+                console.log("Opção inválida. Tente novamente.") 
+                break 
+        }
+    }
+}
+
+main()  
