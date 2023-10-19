@@ -1,0 +1,157 @@
+// UM.TS
+import * as leitor from "readline-sync"
+/*
+//EXEMPLO
+class Carro {
+    marca: string
+    modelo: string
+    ano: number
+    placa: string
+
+    constructor (marca: string,modelo: string, ano: number, placa: string) {
+        this.marca = marca
+        this.modelo = modelo
+        this.ano = ano
+        this.placa = placa
+    }
+}
+
+export class Garagem {
+    carros: Array <Carro>
+    constructor() {
+        this.carros = []
+    }
+
+    adicionar(): void {
+        let marca = leitor.question ("Informe a marca do seu carro")
+        let modelo = leitor.question ("Informe o modelo do seu carro")
+        let ano = leitor.questionInt ("Informe o ano do seu carro")
+        let placa = leitor.question ("Informe a placa do seu carro")
+        let carro = new Carro (marca, modelo, ano , placa)
+        this.carros.push(carro)        
+    }
+
+    remover(): void {
+        let placa = leitor.question ("Informe a placa do carro que deseja remover da garagem")
+        const index = this.carros.indexOf(placa)
+        this.carros.splice(index, 1)
+    }
+
+    getGaragem(): void {
+        console.log("Carros na garagem: ", this.carros) 
+        
+    }
+}
+*/
+
+// ATIVIDADE 
+class Medicamento {
+    nome: string;
+    quantidade: number;
+    preco: number;
+
+    constructor(nome: string, quantidade: number, preco: number) {
+        this.nome = nome;
+        this.quantidade = quantidade;
+        this.preco = preco;
+    }
+}
+
+export class Farmacia {
+    medicamentos: Array<Medicamento>;
+
+    constructor() {
+        this.medicamentos = [];
+    }
+
+    adicionar(): void {
+        let nome = leitor.question("Informe o nome do novo remédio: ");
+        let quantidade = leitor.questionInt("A quantidade que deseja adicionar: ");
+        let preco = leitor.questionInt("Informe o preço do remédio: ");
+        const medicamento = new Medicamento(nome, quantidade, preco);
+        this.medicamentos.push(medicamento);
+        console.log("Remedio adicionado");
+        
+    }
+
+    remover(): void {
+        let nome = leitor.question("Informe a placa do carro que deseja remover da garagem")
+        const index = this.medicamentos.indexOf(nome)
+        this.medicamentos.splice(index, 1)
+        console.log("Remedio removido");
+        
+    }
+
+    vizualizar(): void {
+        console.log("Remédios na farmácia: ", this.medicamentos);
+    }
+
+    comprar(): void {
+        let nome = leitor.question("Informe o nome do remédio que deseja comprar: ");
+        let quantidade = leitor.questionInt("Informe a quantidade que deseja comprar: ");
+        const medicamento = this.medicamentos.find((med) => med.nome === nome);
+
+        if (medicamento) {
+            if (quantidade <= medicamento.quantidade) {
+                medicamento.quantidade -= quantidade;
+                console.log(`${quantidade} unidades de ${nome} compradas.`);
+                if (medicamento.quantidade === 0) {
+                    this.remover();
+                }
+            } else {
+                console.log(`Estoque insuficiente para a compra de ${quantidade} unidades de ${nome}.`);
+            }
+        } else {
+            console.log(`Remédio ${nome} não encontrado.`);
+        }
+    }
+}
+
+INDEX.TS
+
+import { Farmacia } from "./um"
+import * as leitor from "readline-sync"
+
+
+const minhaLista = new Farmacia("Minha Loja de Variedades", "Rua Lori Herzer, 299")
+
+function main() {
+    let a = true
+    while (a) {
+        const escolha = leitor.question(`Escolha uma opção:\n1. Adicionar remedio ao estoque\n2. Vizualizar produtos\n3. Remover remedio do estoque\n4. \n5 - Comprar remedio Sair\n`)
+
+        switch (escolha) {
+            case "1":
+                const novoProduto = leitor.question("Digite o nome do remedio que deseja adicionar ao estoque: ")
+                minhaLista.adicionar(novoProduto)
+                console.log(`O produto ${novoProduto} foi adicionado`);
+                minhaLista.vizualizar()
+                
+                break
+            case "2":
+                minhaLista.vizualizar()
+                break
+            case "3":
+                const produtoRemover = leitor.question("Digite o nome do remedio que deseja remover: ")
+                minhaLista.remover(produtoRemover)
+                console.log(`O remedio ${produtoRemover} foi removido`)
+
+                case "4":
+                const remedioComprar = leitor.question ("Digite o nome do remedio que deseja comprar")
+                minhaLista.comprar(remedioComprar)
+                console.log(`O remedio ${remedioComprar} foi comprado`);
+                
+
+                minhaLista.vizualizar()
+                break
+            case "5":
+                a = false
+                break
+            default:
+                console.log("Opção inválida. Tente novamente.")
+                break
+        }
+    }
+}
+
+main()
