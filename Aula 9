@@ -1,0 +1,267 @@
+/*
+"use strict"
+Object.defineProperty(exports, "__esModule", { value: true })
+exports.Farmacia = void 0
+var leitor = require("readline-sync")
+var Medicamento = /** @class */ 
+/*
+(function () {
+    function Medicamento(nome, qtdEstoque, preco) {
+        this.nome = nome
+        this.preco = preco
+        this.qtdEstoque = qtdEstoque
+    }
+    return Medicamento
+}())
+var Farmacia = /** @class */ 
+/*(function () {
+    function Farmacia() {
+        this.medicamentos = []
+    }
+    Farmacia.prototype.vendaMedicamentos = function () {
+        var nome = leitor.question("Informe o nome do remédio para vender: ")
+        var qtd = leitor.questionInt("Informe a quantidade: ")
+        var medicamento = this.medicamentos.find(function (m) { return m.nome === nome })
+        if (medicamento) {
+            if (medicamento.qtdEstoque >= qtd) {
+                medicamento.qtdEstoque -= qtd
+                console.log("Venda realizada: ".concat(qtd, " unidades de ").concat(medicamento.nome))
+            }
+            else {
+                console.log("Estoque insuficiente para a venda de ".concat(qtd, " unidades de ").concat(medicamento.nome))
+            }
+        }
+        else {
+            console.log("Medicamento ".concat(nome, " n\u00E3o encontrado!"))
+        }
+    }
+    // setters dos medicamentos 
+    Farmacia.prototype.comprarMedicamento = function () {
+        var nome = leitor.question("Informe o nome do medicamento que irá ser comprado: ")
+        var qtd = leitor.questionInt("A quantidade a ser comprada: ")
+        var preco = leitor.questionInt("Informe o valor do medicamento: ")
+        var medicamento = this.medicamentos.find(function (m) { return m.nome === nome })
+        if (medicamento) {
+            medicamento.qtdEstoque += qtd
+            medicamento.preco = preco
+        }
+        else {
+            var novoMedicamento = new Medicamento(nome, qtd, preco)
+            this.medicamentos.push(novoMedicamento)
+        }
+        console.log("Compra realizada ".concat(qtd, " unidades de ").concat(nome))
+    }
+    Farmacia.prototype.inserirMedicamento = function () {
+        var nome = leitor.question("Informe o nome do medicamento que irá ser inserido: ")
+        var qtd = leitor.questionInt("A quantidade a ser inserida: ")
+        var preco = leitor.questionInt("Informe o valor do medicamento: ")
+        var novoMedicamento = new Medicamento(nome, qtd, preco)
+        this.medicamentos.push(novoMedicamento)
+        console.log("Medicamento ".concat(novoMedicamento.nome, " inserido no estoque"))
+    }
+    Farmacia.prototype.removerMedicamento = function () {
+        var nome = leitor.question("Informe o nome do medicamento que irá ser removido: ")
+        var index = this.medicamentos.findIndex(function (m) { return m.nome === nome })
+        if (index) {
+            this.medicamentos.splice(index, 1)
+            console.log("Medicamento ".concat(nome, " removido do estoque"))
+        }
+        else {
+            console.log("Medicamento ".concat(nome, " n\u00E3o removido do estoque, verifique o nome informado"))
+        }
+    }
+    Farmacia.prototype.substituirMedicamento = function () {
+        var nomeAntigo = leitor.question("Insira o nome do remédio a ser substituido: ")
+        var medicamentoAntigo = this.medicamentos.find(function (m) { return m.nome === nomeAntigo })
+        if (medicamentoAntigo) {
+            //remover o remedio antigo
+            var index = this.medicamentos.findIndex(function (m) { return m.nome === nomeAntigo })
+            this.medicamentos.splice(index, 1)
+            //inserir remedio novo
+            var nomeNovo = leitor.question("Insira o nome do remédio a ser inserido no estoque: ")
+            var qtd = leitor.questionInt("A quantidade a ser inserida: ")
+            var preco = leitor.questionInt("Informe o valor do medicamento: ")
+            var medicamentoNovo = new Medicamento(nomeNovo, qtd, preco)
+            this.medicamentos.push(medicamentoNovo)
+            console.log("Substituição realizada!")
+        }
+        else {
+            console.log("Medicamento não encontrado para remoção")
+        }
+    }
+    // get medicamentos:
+    Farmacia.prototype.visualizarEstoque = function () {
+        console.log('Estoque de medicamento:')
+        this.medicamentos.forEach(function (medicamento) {
+            console.log("Nome: ".concat(medicamento.nome))
+            console.log("Quantidade: ".concat(medicamento.qtdEstoque))
+            console.log("Preco: ".concat(medicamento.preco))
+        })
+    }
+    return Farmacia
+}())
+exports.Farmacia = Farmacia
+*/
+
+
+class Livro {
+  private id: number
+  private titulo: string
+  private autor: string
+  private anoPublicacao: number
+  private quantidadeDisponivel: number
+
+  constructor(id: number, titulo: string, autor: string, anoPublicacao: number, quantidadeDisponivel: number) {
+    this.id = id
+    this.titulo = titulo
+    this.autor = autor
+    this.anoPublicacao = anoPublicacao
+    this.quantidadeDisponivel = quantidadeDisponivel
+  }
+
+  getId(): number {
+    return this.id
+  }
+
+  getTitulo(): string {
+    return this.titulo
+  }
+
+  getQuantidadeDisponivel(): number {
+    return this.quantidadeDisponivel
+  }
+
+  emprestarLivro() {
+    if (this.quantidadeDisponivel > 0) {
+      this.quantidadeDisponivel--
+    } else {
+      console.log("Este livro não está disponível para empréstimo.")
+    }
+  }
+
+  devolverLivro() {
+    this.quantidadeDisponivel++
+  }
+}
+
+class Usuario {
+  private id: number
+  private nome: string
+  private email: string
+  private livrosEmprestados: Livro[] = []
+
+  constructor(id: number, nome: string, email: string) {
+    this.id = id
+    this.nome = nome
+    this.email = email
+  }
+
+  getId(): number {
+    return this.id
+  }
+
+  getNome(): string {
+    return this.nome
+  }
+
+  getEmail(): string {
+    return this.email
+  }
+
+  getLivrosEmprestados(): Livro[] {
+    return this.livrosEmprestados
+  }
+
+  emprestarLivro(livro: Livro) {
+    if (this.livrosEmprestados.length < 3) {
+      this.livrosEmprestados.push(livro)
+      livro.emprestarLivro()
+    } else {
+      console.log("Você atingiu o limite máximo de livros emprestados (3).")
+    }
+  }
+
+  devolverLivro(livro: Livro) {
+    const index = this.livrosEmprestados.indexOf(livro)
+    if (index !== -1) {
+      this.livrosEmprestados.splice(index, 1)
+      livro.devolverLivro()
+    }
+  }
+}
+
+
+interface Biblioteca {
+  cadastrarLivro(livro: Livro): void
+  cadastrarUsuario(usuario: Usuario): void
+  emprestarLivro(livroId: number, usuarioId: number): void
+  devolverLivro(livroId: number, usuarioId: number): void
+  consultarLivrosDisponiveis(): Livro[]
+}
+
+
+class SistemaBiblioteca implements Biblioteca {
+  private livros: Livro[] = []
+  private usuarios: Usuario[] = []
+
+  cadastrarLivro(livro: Livro) {
+    this.livros.push(livro)
+  }
+
+  cadastrarUsuario(usuario: Usuario) {
+    this.usuarios.push(usuario)
+  }
+
+  emprestarLivro(livroId: number, usuarioId: number) {
+    const livro = this.livros.find((livro) => livro.getId() === livroId)
+    const usuario = this.usuarios.find((usuario) => usuario.getId() === usuarioId)
+
+    if (livro && usuario) {
+      usuario.emprestarLivro(livro)
+    } else {
+      console.log("Livro ou usuário não encontrado.")
+    }
+  }
+
+  devolverLivro(livroId: number, usuarioId: number) {
+    const livro = this.livros.find((livro) => livro.getId() === livroId)
+    const usuario = this.usuarios.find((usuario) => usuario.getId() === usuarioId)
+
+    if (livro && usuario) {
+      usuario.devolverLivro(livro)
+    } else {
+      console.log("Livro ou usuário não encontrado.")
+    }
+  }
+
+  consultarLivrosDisponiveis(): Livro[] {
+    return this.livros.filter((livro) => livro.getQuantidadeDisponivel() > 0)
+  }
+}
+
+
+const sistema = new SistemaBiblioteca()
+
+const livro1 = new Livro(1, "Livro 1", "Autor 1", 2020, 3)
+const livro2 = new Livro(2, "Livro 2", "Autor 2", 2018, 2)
+
+const usuario1 = new Usuario(1, "Usuário 1", "usuario1@email.com")
+const usuario2 = new Usuario(2, "Usuário 2", "usuario2@email.com")
+
+sistema.cadastrarLivro(livro1)
+sistema.cadastrarLivro(livro2)
+
+sistema.cadastrarUsuario(usuario1)
+sistema.cadastrarUsuario(usuario2)
+
+sistema.emprestarLivro(1, 1)
+sistema.emprestarLivro(1, 2)
+
+console.log("Livros disponíveis:")
+console.log(sistema.consultarLivrosDisponiveis())
+
+sistema.devolverLivro(1, 1)
+sistema.devolverLivro(1, 2)
+
+console.log("Livros disponíveis após devolução:")
+console.log(sistema.consultarLivrosDisponiveis())
