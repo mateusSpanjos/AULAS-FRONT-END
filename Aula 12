@@ -1,0 +1,72 @@
+/*
+class Animal {
+    constructor(public name: string) {}
+    speak(): string {
+    return "Algum som indistinto"
+    }
+    }
+    class Dog extends Animal {
+    speak(): string {
+    return `${this.name} diz Woof!`
+    }
+    }
+    class Cat extends Animal {
+    speak(): string {
+    return `${this.name} diz Meow!`
+    }
+
+ }
+
+ */
+
+ import * as leitor from "readline-sync"
+
+abstract class Animal {
+    public nome: string
+
+    constructor(nome: string) {
+        this.nome = nome
+    }
+
+abstract emitirSom(): string
+}
+
+class Cachorro extends Animal {
+    emitirSom(): string {
+    return "Woof!"
+    }
+}
+
+class Gato extends Animal {
+    emitirSom(): string {
+    return "Meow!"
+    }
+}
+
+class SistemaDeAnimais {
+    public animais: Animal[] = []
+
+    cadastrarAnimal(animal: Animal): void {
+        this.animais.push(animal)
+    }
+
+    removerAnimal(animal: Animal): void {
+    const index = this.animais.indexOf(animal)
+        if (index !== -1) {
+            this.animais.splice(index, 1)
+        }
+    }
+
+    listarAnimais(): void {
+        console.log("Animais no sistema:")
+    for (const animal of this.animais) {
+            console.log(animal.constructor.name + " - Nome: " + animal.nome)
+        }
+    }
+
+    interagirAnimais(): void {
+    for (const animal of this.animais) {
+            console.log(animal.nome + " faz som: " + animal.emitirSom())
+        }
+    }
+}
