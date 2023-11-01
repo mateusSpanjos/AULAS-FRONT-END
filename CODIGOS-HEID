@@ -1,0 +1,46 @@
+CREATE TABLE SistemaFarmacia (
+	id_farmacia INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	id_medicamento INT NOT NULL,
+	id_usuario INT NOT NULL, 
+	FOREIGN KEY (id_medicamento)   REFERENCES medicamentos(id_medicamento), 
+	FOREIGN KEY (id_usuario)  REFERENCES usuario(id_usuario)
+);
+
+INSERT INTO sistemafarmacia(id_medicamento, id_usuario)
+VALUES
+(1,1),
+(2,2)
+(3,3)
+(4,4)
+
+
+
+DROP TABLE sistemafarmacia;
+DROP TABLE usuario;
+CREATE TABLE usuario(
+	id_usuario INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	nome VARCHAR(50) NOT NULL,
+	idade INT NOT NULL,
+	endereco VARCHAR(50)
+);
+
+
+INSERT INTO usuario (nome, idade, endereco)
+VALUES
+('João', 20, 'Rua dos Testes'),
+('Mario', 45, 'Rua dos Encanadores'),
+('Ana Júlia', 18, 'Rua de Sertão'),
+('Luigi', 45, 'Rua dos Encanadores');	
+
+SELECT * FROM medicamentos;
+SELECT * FROM usuario;
+
+
+SELECT usuario.nome, medicamentos.nome
+FROM sistemafarmacia 
+INNER JOIN usuario
+ON usuario.id_usuario = sistemafarmacia.id_usuario
+INNER JOIN medicamentos
+ON medicamentos.id_medicamento = sistemafarmacia.id_medicamento;
+
+SELECT id_usuario, id_medicamento FROM sistemafarmacia;
