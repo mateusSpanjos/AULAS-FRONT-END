@@ -82,3 +82,7 @@ VALUES
 ('cristian', 'cristian@gmail.com'),
 ('ana julia', 'anajulia@hotmail.com'),
 ('cristina', 'cristina@outlook.com');
+
+SELECT
+FROM usuario
+WHERE id_usuario > 2
