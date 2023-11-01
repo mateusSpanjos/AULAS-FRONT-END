@@ -44,3 +44,28 @@ INNER JOIN medicamentos
 ON medicamentos.id_medicamento = sistemafarmacia.id_medicamento;
 
 SELECT id_usuario, id_medicamento FROM sistemafarmacia;
+
+ATIVIDADE DA BIBLIOTECA:
+
+CREATE TABLE usuario(
+	id_usuario INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	nome_usuario VARCHAR(50) NOT NULL,
+	email_usuario VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE livro(
+	id_livro INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	titulo VARCHAR(50) NOT NULL,
+	autor VARCHAR(50) NOT NULL,
+	anoPublicacao INT NOT NULL,
+	quantidadeDisponivel INT NOT NULL
+);
+
+CREATE TABLE sistemabiblioteca(
+	id_biblioteca INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	id_usuario INT NOT NULL,
+	id_livro INT NOT NULL,
+	FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario),
+	FOREIGN KEY (id_livro) REFERENCES livro(id_livro)
+);
+
