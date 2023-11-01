@@ -69,3 +69,16 @@ CREATE TABLE sistemabiblioteca(
 	FOREIGN KEY (id_livro) REFERENCES livro(id_livro)
 );
 
+INSERT INTO livro(titulo, autor, anoPublicacao, quantidadeDisponivel)
+VALUES
+('Sistemas Operacionais', 'Tanembaum', 1992, 5),
+('Redes de Computadores', 'Tanembaum', 1988, 5),
+('Java: A Bíblia', 'Roberto Rubinstein Serson ', 2009, 2),
+('Dragões de Éter', 'Dracoon', 2012, 6);
+
+INSERT INTO usuario(nome_usuario, email_usuario)
+VALUES
+('pedro', 'pedro@yahoo.com'),
+('cristian', 'cristian@gmail.com'),
+('ana julia', 'anajulia@hotmail.com'),
+('cristina', 'cristina@outlook.com');
