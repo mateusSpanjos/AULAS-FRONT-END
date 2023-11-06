@@ -1,0 +1,136 @@
+DB.TS
+const mariadb = require ("mariadb")
+const database = mariadb.createPool ({
+    host: 'localhost',
+    user: 'root',
+    port: 5000,
+    password: 'password',
+    database: 'banco_senac',
+    connectionLimit: '5'
+});
+
+export default database;
+
+database.execute(
+    `
+    CREATE TABLE IF NOT EXISTS user_info (
+        id_user INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+        name_user VARCHAR(50 NOT NULL),
+        password_user VARCHAR(50) NOT NULL,
+        total_value DECIMAL NOT NULL
+
+    );
+    
+
+`
+)
+
+
+///// UM.TS
+import db from "./db";
+
+class Person {
+    name: string;
+    password: string;
+    total_value: number;
+
+    constructor(name: string, password: string) {
+        this.name = name;
+        this.password = password;
+        this.total_value = 0;
+    }
+
+    insertDatabase() {
+        db.execute(`INSERT INTO user_info(name_user, password_user, total_value) VALUES (?, ?, ?)`, [this.name, this.password, this.total_value]);
+    }
+
+    deposit(depositValue: number) {
+        this.total_value += depositValue;
+        db.execute(`UPDATE user_info SET total_value = total_value + ? WHERE name_user = ?`, [this.total_value, this.name]);
+    }
+
+    cashWithdraw(withdraw: number) {
+        if (withdraw > this.total_value) {
+            console.log("Dinheiro insuficiente em conta");
+        } else {
+            this.total_value -= withdraw;
+            db.execute(`UPDATE user_info SET total_value = total_value + ? WHERE name_user = ?`, [this.total_value, this.name]);
+        }
+    }
+
+    checkStatement() {
+        const bankStatement = db.execute(`SELECT total_value FROM user_info`);
+        console.log(bankStatement);
+    }
+}
+
+export { Person };
+
+INDEX.TS
+
+import * as Classes from './um';
+import * as leitor from 'readline-sync';
+
+let account = false;
+let nameUser: string = "";
+let newPassword: string = "";
+let userAccount: Classes.Person | null = null;
+
+export function menu(): void {
+    console.log("Banco SENAC: \n");
+    console.log("1 - Deposito");
+    console.log("2 - Saque");
+    console.log("3 - Verificar Banco");
+    console.log("4 - Criar Conta");
+    console.log("5 - Sair");
+
+    let op: number = leitor.questionInt("Informe a opção desejada: ");
+    switch (op) {
+        case 1:
+            if (userAccount instanceof Classes.Person) {
+                let depositValue: number = leitor.questionFloat("Informe o valor do depósito: ");
+                userAccount.deposit(depositValue);
+            } else {
+                console.error("Erro! Não tem conta no banco");
+            }
+            menu();
+            break;
+        case 2:
+            if (userAccount instanceof Classes.Person) {
+                const withdraw: number = leitor.questionFloat("Insira o valor do saque: ");
+                userAccount.cashWithdraw(withdraw);
+            } else {
+                console.error("Erro! Não tem conta no banco");
+                menu();
+            }
+            menu();
+            break;
+        case 3:
+            if (userAccount instanceof Classes.Person) {
+                userAccount.checkStatement();
+            } else {
+                console.error("Erro! Não tem conta no banco");
+                menu();
+            }
+            break; // Added 'break' here
+        case 4:
+            if (account === true) {
+                console.log("Você já tem uma conta!");
+            } else {
+                const user: string = leitor.question("Insira seu nome: ");
+                const passwordUser: string = leitor.question("Insira sua senha: ");
+                nameUser = user;
+                newPassword = passwordUser;
+                userAccount = new Classes.Person(nameUser, newPassword);
+                userAccount.insertDatabase();
+                account = true;
+            }
+            menu();
+            break;
+        case 5:
+            console.log("Saindo...");
+            break;
+    }
+}
+
+menu();
